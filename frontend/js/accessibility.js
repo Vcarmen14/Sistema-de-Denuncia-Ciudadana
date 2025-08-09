@@ -400,25 +400,36 @@ class AccessibilityManager {
     let left = btnRect.left
     let top = btnRect.bottom + 10
 
-    // Ajustar si se sale de la pantalla por la derecha
-    if (left + menuWidth > window.innerWidth) {
-      left = window.innerWidth - menuWidth - 20
-    }
+    // Responsive adjustment for small screens
+    if (window.innerWidth <= 480) {
+      left = 10
+      top = 60
+      menu.style.width = "auto"
+      menu.style.left = `${left}px`
+      menu.style.top = `${top}px`
+      menu.style.right = "10px"
+    } else {
+      // Ajustar si se sale de la pantalla por la derecha
+      if (left + menuWidth > window.innerWidth) {
+        left = window.innerWidth - menuWidth - 20
+      }
 
-    // Ajustar si se sale de la pantalla por la izquierda
-    if (left < 20) {
-      left = 20
-    }
+      // Ajustar si se sale de la pantalla por la izquierda
+      if (left < 20) {
+        left = 20
+      }
 
-    // Ajustar si se sale de la pantalla por abajo
-    if (top + menuHeight > window.innerHeight) {
-      top = btnRect.top - menuHeight - 10
-    }
+      // Ajustar si se sale de la pantalla por abajo
+      if (top + menuHeight > window.innerHeight) {
+        top = btnRect.top - menuHeight - 10
+      }
 
-    // Aplicar posición
-    menu.style.left = `${left}px`
-    menu.style.top = `${top}px`
-    menu.style.width = `${menuWidth}px`
+      // Aplicar posición
+      menu.style.left = `${left}px`
+      menu.style.top = `${top}px`
+      menu.style.width = `${menuWidth}px`
+      menu.style.right = "auto"
+    }
 
     menu.classList.add("show")
 

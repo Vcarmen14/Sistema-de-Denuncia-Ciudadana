@@ -12,6 +12,8 @@
   max-height: 80vh;
   overflow-y: auto;
   width: 400px;
+  max-width: 95vw;
+  margin: 0 2.5vw;
   backdrop-filter: blur(10px);
   transform: none !important; /* No hacer zoom al menú */
 }
@@ -391,34 +393,14 @@ input:focus + .toggle-slider {
   }
 }
 
-@media (max-width: 480px) {
+/* Added for better responsiveness on very small screens */
+@media (max-width: 360px) {
   .accessibility-menu {
-    left: 5px !important;
-    right: 5px !important;
-  }
-  
-  .accessibility-menu-header,
-  .accessibility-menu-body {
-    padding: 0.75rem;
-  }
-  
-  .accessibility-option {
-    padding: 0.5rem 0;
-  }
-  
-  .option-icon {
-    font-size: 1rem;
-    width: 28px;
-    height: 28px;
-  }
-  
-  .option-label {
-    font-size: 0.75rem;
-  }
-  
-  .usability-btn {
-    font-size: 0.75rem;
-    padding: 0.5rem 0.75rem;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+    max-height: 90vh;
   }
 }
 
