@@ -43,6 +43,8 @@
             <div class="container">
                 <div class="header-content">
                    <h1 class="header-title" data-i18n="header.title">Sistema de Denuncia Ciudadana - Municipio de Manta</h1>
+
+                
                     
                     <div class="header-controls">
                         <!-- Selector de idioma -->
@@ -70,14 +72,20 @@
         <nav class="nav" role="navigation" id="navigation">
             <div class="container">
                 <div class="nav-container">
-                    <button class="nav-btn active" data-page="inicio" data-i18n="nav.home">🏠 Inicio</button>
-                    <button class="nav-btn auth-required" data-page="reportar" data-i18n="nav.report">📝 Reportar Incidencia</button>
-                    <button class="nav-btn" data-page="mapa" data-i18n="nav.map">🗺️ Mapa de Incidencias</button>
-                    <button class="nav-btn auth-required" data-page="denuncias" data-i18n="nav.reports">📋 Mis Denuncias</button>
-                    <button class="nav-btn" data-page="perfil" data-i18n="nav.profile">👤 Mi Perfil</button>
-                    <button class="nav-btn auth-required" data-page="notificaciones" data-i18n="nav.notifications">🔔 Notificaciones</button>
-                    <button class="nav-btn" data-page="ayuda" data-i18n="nav.help">❓ Ayuda y FAQ</button>
-                    <button class="nav-btn auth-required" data-page="feedback" data-i18n="nav.feedback">💬 Feedback</button>
+                    
+                    <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                        ☰
+                    </button>
+                    <div id="nav-menu" class="nav-menu">
+                        <button class="nav-btn active" data-page="inicio" data-i18n="nav.home">🏠 Inicio</button>
+                        <button class="nav-btn auth-required" data-page="reportar" data-i18n="nav.report">📝 Reportar Incidencia</button>
+                        <button class="nav-btn" data-page="mapa" data-i18n="nav.map">🗺️ Mapa de Incidencias</button>
+                        <button class="nav-btn auth-required" data-page="denuncias" data-i18n="nav.reports">📋 Mis Denuncias</button>
+                        <button class="nav-btn" data-page="perfil" data-i18n="nav.profile">👤 Mi Perfil</button>
+                        <button class="nav-btn auth-required" data-page="notificaciones" data-i18n="nav.notifications">🔔 Notificaciones</button>
+                        <button class="nav-btn" data-page="ayuda" data-i18n="nav.help">❓ Ayuda y FAQ</button>
+                        <button class="nav-btn auth-required" data-page="feedback" data-i18n="nav.feedback">💬 Feedback</button>
+                    </div>
                 </div>
             </div>
         </nav>

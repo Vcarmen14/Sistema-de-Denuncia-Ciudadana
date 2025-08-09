@@ -85,8 +85,9 @@ export async function POST(req: Request) {
 
 export async function GET(req: NextRequest) {
   try {
-    const session = await getSession()
-    if (!session) return NextResponse.json({ error: "No autenticado" }, { status: 401 })
+    // Remove session check to allow unauthenticated access
+    // const session = await getSession()
+    // if (!session) return NextResponse.json({ error: "No autenticado" }, { status: 401 })
 
     const url = new URL(req.url)
     const tipo = url.searchParams.get("tipo")

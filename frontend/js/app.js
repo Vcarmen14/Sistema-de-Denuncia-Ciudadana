@@ -52,6 +52,60 @@ class App {
         }
       })
     })
+
+    // Hamburger menu toggle
+    const hamburgerBtn = document.getElementById("hamburger-btn")
+    const hamburgerBtnHeader = document.getElementById("hamburger-btn-header")
+    const navMenu = document.getElementById("nav-menu")
+    if (navMenu) {
+      if (hamburgerBtn) {
+        hamburgerBtn.addEventListener("click", () => {
+          const isExpanded = hamburgerBtn.getAttribute("aria-expanded") === "true"
+          hamburgerBtn.setAttribute("aria-expanded", String(!isExpanded))
+          navMenu.classList.toggle("show")
+          if (hamburgerBtnHeader) {
+            hamburgerBtnHeader.setAttribute("aria-expanded", String(!isExpanded))
+          }
+        })
+      }
+      if (hamburgerBtnHeader) {
+        hamburgerBtnHeader.addEventListener("click", () => {
+          const isExpanded = hamburgerBtnHeader.getAttribute("aria-expanded") === "true"
+          hamburgerBtnHeader.setAttribute("aria-expanded", String(!isExpanded))
+          navMenu.classList.toggle("show")
+          if (hamburgerBtn) {
+            hamburgerBtn.setAttribute("aria-expanded", String(!isExpanded))
+          }
+        })
+      }
+
+      // Close menu when clicking a nav button
+      const navButtons = navMenu.querySelectorAll(".nav-btn")
+      navButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          navMenu.classList.remove("show")
+          if (hamburgerBtn) {
+            hamburgerBtn.setAttribute("aria-expanded", "false")
+          }
+          if (hamburgerBtnHeader) {
+            hamburgerBtnHeader.setAttribute("aria-expanded", "false")
+          }
+        })
+      })
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (event) => {
+        if (!navMenu.contains(event.target) && event.target !== hamburgerBtn && event.target !== hamburgerBtnHeader) {
+          navMenu.classList.remove("show")
+          if (hamburgerBtn) {
+            hamburgerBtn.setAttribute("aria-expanded", "false")
+          }
+          if (hamburgerBtnHeader) {
+            hamburgerBtnHeader.setAttribute("aria-expanded", "false")
+          }
+        }
+      })
+    }
   }
 
   isFormActive() {
@@ -1105,7 +1159,7 @@ class App {
       })
     }
 
-    if (registerForm) {
+if (registerForm) {
       registerForm.addEventListener("submit", async (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
@@ -1133,8 +1187,9 @@ class App {
         submitBtn.disabled = false
 
         if (result.success) {
-          this.showFormSuccess("register-success", window.i18n.get("auth.register_success"))
+          window.components?.showToast(window.i18n.get("auth.register_success"), "success")
           this.hideFormError("register-error")
+          this.hideFormSuccess("register-success")
           this.markChangesSaved()
           registerForm.reset()
         } else {
