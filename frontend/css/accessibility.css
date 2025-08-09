@@ -1,0 +1,515 @@
+/* Estilos de accesibilidad mejorados */
+
+/* Menu de accesibilidad modernizado */
+.accessibility-menu {
+  position: fixed;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  z-index: 1001;
+  display: none;
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 400px;
+  backdrop-filter: blur(10px);
+  transform: none !important; /* No hacer zoom al menú */
+}
+
+.accessibility-menu.show {
+  display: block;
+  animation: slideInDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accessibility-menu-content {
+  width: 100%;
+}
+
+.accessibility-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 1rem 1rem 0 0;
+}
+
+.accessibility-menu-header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.close-accessibility-menu {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-accessibility-menu:hover {
+  background: #f3f4f6;
+  color: #ef4444;
+  transform: scale(1.1);
+}
+
+.accessibility-menu-body {
+  padding: 1.5rem;
+}
+
+.accessibility-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+}
+
+.accessibility-option:last-child {
+  border-bottom: none;
+}
+
+.accessibility-option:hover {
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 0.5rem;
+  margin: 0 -0.5rem;
+  padding: 1rem 0.5rem;
+}
+
+.option-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.option-icon {
+  font-size: 1.25rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+.option-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.4;
+}
+
+/* Toggle switches mejorados */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: 0.3s ease;
+  border-radius: 28px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s ease;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .toggle-slider {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+input:focus + .toggle-slider {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Selectores mejorados */
+.accessibility-select {
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #374151;
+  min-width: 120px;
+  transition: all 0.2s ease;
+}
+
+.accessibility-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.accessibility-select:hover {
+  border-color: #9ca3af;
+}
+
+/* Controles de zoom mejorados */
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.zoom-btn {
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.zoom-btn:hover {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+.zoom-level {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Menú de usabilidad mejorado - CONSISTENTE */
+.usability-menu {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.usability-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.usability-menu li {
+  margin: 0;
+}
+
+/* Botones de usabilidad CONSISTENTES con el resto */
+.usability-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+}
+
+.usability-btn:hover {
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 0.5rem;
+  margin: 0 -0.5rem;
+  padding: 1rem 0.5rem;
+}
+
+.usability-btn-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.usability-btn-icon {
+  font-size: 1.25rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+.usability-btn-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.usability-btn-toggle {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.usability-btn-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.usability-btn-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: 0.3s ease;
+  border-radius: 28px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.usability-btn-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s ease;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.usability-btn[aria-pressed="true"] .usability-btn-slider {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.usability-btn[aria-pressed="true"] .usability-btn-slider:before {
+  transform: translateX(24px);
+}
+
+/* Responsive para el menú de accesibilidad */
+@media (max-width: 768px) {
+  .accessibility-menu {
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+  
+  .accessibility-menu-header,
+  .accessibility-menu-body {
+    padding: 1rem;
+  }
+  
+  .accessibility-option {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+  }
+  
+  .option-info {
+    width: 100%;
+  }
+  
+  .toggle-switch,
+  .accessibility-select,
+  .zoom-controls {
+    align-self: flex-end;
+  }
+  
+  .usability-menu {
+    padding: 0 0.5rem;
+  }
+  
+  .usability-btn {
+    font-size: 0.8125rem;
+    padding: 0.625rem 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .accessibility-menu {
+    left: 5px !important;
+    right: 5px !important;
+  }
+  
+  .accessibility-menu-header,
+  .accessibility-menu-body {
+    padding: 0.75rem;
+  }
+  
+  .accessibility-option {
+    padding: 0.5rem 0;
+  }
+  
+  .option-icon {
+    font-size: 1rem;
+    width: 28px;
+    height: 28px;
+  }
+  
+  .option-label {
+    font-size: 0.75rem;
+  }
+  
+  .usability-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Animaciones */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Estados de focus mejorados */
+.accessibility-menu *:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Mejoras para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Indicadores visuales para elementos interactivos */
+.accessibility-menu button:focus,
+.accessibility-menu select:focus,
+.accessibility-menu input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Mejoras para el contraste en modo alto contraste */
+.high-contrast .accessibility-menu {
+  background: #ffffff;
+  border: 3px solid #000000;
+}
+
+.high-contrast .accessibility-menu-header {
+  background: #000000;
+  color: #ffffff;
+}
+
+.high-contrast .option-label {
+  color: #000000;
+  font-weight: 600;
+}
+
+.high-contrast .toggle-slider {
+  background-color: #666666;
+  border: 2px solid #000000;
+}
+
+.high-contrast input:checked + .toggle-slider {
+  background-color: #000000;
+}
+
+.high-contrast .zoom-btn {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.high-contrast .zoom-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.high-contrast .accessibility-select {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.high-contrast .usability-btn {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.high-contrast .usability-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}

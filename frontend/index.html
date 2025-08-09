@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page.title">Sistema de Denuncia Ciudadana - Municipio de Manta</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout-improvements.css">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Meta tags para SEO y accesibilidad -->
+    <meta name="description" content="Sistema de denuncia ciudadana del Municipio de Manta para reportar incidencias urbanas">
+    <meta name="keywords" content="denuncia, ciudadana, Manta, incidencias, municipio">
+    <meta name="author" content="Municipio de Manta">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip links para accesibilidad -->
+    <div class="accessibility-skip-links">
+        <a href="#main-content" data-i18n="accessibility.skip_to_content">Saltar al contenido principal</a>
+        <a href="#navigation" data-i18n="accessibility.skip_to_navigation">Saltar a la navegación</a>
+    </div>
+
+    <div class="main-layout">
+        <!-- Header -->
+        <header class="header" role="banner">
+            <div class="container">
+                <div class="header-content">
+                   <h1 class="header-title" data-i18n="header.title">Sistema de Denuncia Ciudadana - Municipio de Manta</h1>
+                    
+                    <div class="header-controls">
+                        <!-- Selector de idioma -->
+                        <select id="language-select" class="language-selector" aria-label="Seleccionar idioma">
+                            <option value="es">🇪🇸 Español</option>
+                            <option value="en">🇺🇸 English</option>
+                        </select>
+                        
+                        <!-- Botón de accesibilidad -->
+                        <button id="accessibility-btn" class="accessibility-btn" aria-label="Opciones de accesibilidad" aria-expanded="false">
+                            ♿ <span data-i18n="accessibility.title">Accesibilidad</span>
+                        </button>
+                        
+                        <!-- Información del usuario -->
+                        <div id="user-info" class="user-info" style="display: none;">
+                            <span id="user-greeting" class="user-greeting" data-i18n="auth.welcome">Bienvenido</span>
+                            <button id="logout-btn" class="logout-btn" data-i18n="auth.logout">Cerrar Sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navegación -->
+        <nav class="nav" role="navigation" id="navigation">
+            <div class="container">
+                <div class="nav-container">
+                    <button class="nav-btn active" data-page="inicio" data-i18n="nav.home">🏠 Inicio</button>
+                    <button class="nav-btn auth-required" data-page="reportar" data-i18n="nav.report">📝 Reportar Incidencia</button>
+                    <button class="nav-btn" data-page="mapa" data-i18n="nav.map">🗺️ Mapa de Incidencias</button>
+                    <button class="nav-btn auth-required" data-page="denuncias" data-i18n="nav.reports">📋 Mis Denuncias</button>
+                    <button class="nav-btn" data-page="perfil" data-i18n="nav.profile">👤 Mi Perfil</button>
+                    <button class="nav-btn auth-required" data-page="notificaciones" data-i18n="nav.notifications">🔔 Notificaciones</button>
+                    <button class="nav-btn" data-page="ayuda" data-i18n="nav.help">❓ Ayuda y FAQ</button>
+                    <button class="nav-btn auth-required" data-page="feedback" data-i18n="nav.feedback">💬 Feedback</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content" role="main" id="main-content">
+            <div class="content-area zoom-content" id="content-area">
+                <!-- El contenido se carga dinámicamente aquí -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/speech.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/keyboard.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- Versión de scripts en /frontend -->
+    <script src="/frontend/js/supabase-client.js"></script>
+    <script src="/frontend/js/api.js"></script>
+    <script src="/frontend/js/app.js"></script>
+</body>
+</html>
